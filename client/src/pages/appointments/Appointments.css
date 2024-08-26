@@ -10,8 +10,15 @@
     .appointment_section{
         display: flex;
         flex-direction: column;
+        overflow-y: hidden;
+        gap: 15px;
+        padding-top:20px ;
         & > div:first-of-type{
             width:98.5%;
+            margin-top: 150px;
+        }
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
 }

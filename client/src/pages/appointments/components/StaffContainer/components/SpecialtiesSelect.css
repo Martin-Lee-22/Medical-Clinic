@@ -47,9 +47,14 @@
 @media only screen and (max-width: 900px) {
     .specialties_select_container{
         height: min-content;
-        width: min-content;
+        width: 175px;
+        height: 41px;
         flex-direction: row;
-        padding: 10px 5px 10px 5px;
+        flex-wrap: wrap;
+        gap: 0 8px;
+        padding: 5px 5px 10px 5px;
+        margin-bottom: 0px;
+        overflow-y: scroll;
         & select{
             width:15vmin;
             height: 28px;

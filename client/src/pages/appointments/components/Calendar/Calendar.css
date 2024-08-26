@@ -11,27 +11,11 @@
     flex-direction: column;
     border-radius: 5px;
     position: relative;
-    /* overflow-y: scroll; */
 }
 
 .calendar_table{
     padding-top: 5px;
     border-collapse: collapse;
-    /* table-layout: fixed;
-    min-width: 350px;
-    width: min-content; */
-    /* & tr:first-child th{
-        width: 125px;
-        border: 1px solid red;
-    }
-    & tbody tr th{
-        width: 125px;
-        border: 1px solid red;
-    }
-    & tbody tr {
-        border: 1px solid green;
-        
-    } */
     & tbody{
         display: block;
         width: 100%;
@@ -45,7 +29,6 @@
         display: table;
         width: 100%;
         table-layout: fixed;
-  /* even columns width , fix width of table too*/
     }
     & tbody tr td{
         border-bottom: 0.5px solid rgb(189, 187, 187);

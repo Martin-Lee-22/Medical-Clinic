@@ -35,8 +35,8 @@ const Layout = () => {
         <div className={(darkMode ? 'dark' : 'light')}>
             <ThemeContext.Provider value={{darkMode, setDarkMode}}>
                 <ModalManager>
-                    {showSideNavBar && <SideNavBar isMobile={isMobile} setShowSideNavBar={setShowSideNavBar}/>}
-                    {showTopNavBar && <TopNavBar showSideNavBar={showSideNavBar} setShowSideNavBar={setShowSideNavBar}/>}
+                    {showSideNavBar && <SideNavBar isMobile={isMobile} showSideNavBar={showSideNavBar} setShowSideNavBar={setShowSideNavBar}/>}
+                    {showTopNavBar && <TopNavBar showSideNavBar={showSideNavBar} darkMode={darkMode} setShowSideNavBar={setShowSideNavBar}/>}
                     <div className={"pages_container " + (isMobile ? '' : "fullscreen_container")}>
                         <Outlet/>
                     </div>

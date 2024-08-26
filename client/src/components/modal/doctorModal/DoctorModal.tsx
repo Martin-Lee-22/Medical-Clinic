@@ -32,7 +32,7 @@ const DoctorModal  = (props:any) => {
     const [validPhoneNumber, setValidPhoneNumber] = useState<boolean>(false)
     const [email, setEmail] = useState<string>(props.email || '')
     const [msp, setMsp] = useState<string>(props.msp || '')
-    const [color, setColor]= useState<string>(props.color || '')
+    const [color, setColor]= useState<string>(props.color || '#000000')
     const [title, setTitle] = useState<string>(props.title || '')
     const [, setValidInputs]= useState<boolean>(false)
     const [specialties, setSpecialties] = useState<string[]>(props.specialties || [])
@@ -120,7 +120,7 @@ const DoctorModal  = (props:any) => {
                 <div>
                     <label htmlFor="title">Title:</label>
                     <select id='title' onChange={(e)=>{setTitle(titles[e.target.selectedIndex]['abbreviation'])}}>
-                        {!title && <option value={''} hidden selected/>}
+                        {!title && <option hidden defaultValue={''}/>}
                         {titles.map((title:title, i:number)=>{return <option value={title.abbreviation} key={i}>{`${title.abbreviation}`}</option>})}
                     </select>
                 </div>
@@ -152,7 +152,7 @@ const DoctorModal  = (props:any) => {
                 <div>
                     <label htmlFor="province">Province:</label>
                         <select name="province" id='province' required defaultValue={province ? province : ''} onChange={e => setProvince(e.target.value)}>
-                            {!province && <option defaultValue={''} selected hidden/>}
+                            {!province && <option defaultValue={''} hidden/>}
                             {Object.entries(provincesAndCities).map(([key, value], index) => {
                                 return <option key={index} value={key}>{value.abbreviation}</option>
                             })}

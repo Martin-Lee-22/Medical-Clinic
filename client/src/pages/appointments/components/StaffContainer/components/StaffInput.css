@@ -28,6 +28,8 @@
 @media only screen and (max-width: 900px) {
     .staff_input_container{
         height:min-content;
+        margin-bottom: 0px;
+        margin-top: 0px;
         & img{
             top: 14px
         }
