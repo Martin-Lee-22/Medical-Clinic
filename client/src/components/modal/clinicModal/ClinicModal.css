@@ -1,0 +1,104 @@
+.clinic_modal_container {  
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 0.5fr 1fr; 
+    grid-template-areas: 
+      "input_modal_container img_container"
+      "schedule_container schedule_container";
+}
+
+#dark_clinic_modal_container{
+    & form > div {
+        background-color: rgb(23, 23, 23);
+        color: white;
+        border: 0.5px solid white;
+    }
+    & table th{
+        color: white;
+    }
+    & table td{
+        background-color: rgb(23, 23, 23);
+        color: white;
+        border: 0.5px solid white;
+    }
+}
+
+#dark_img_container{
+    & > div{
+        background-color: transparent;
+        border: 1px solid white;
+     }
+     & > div > div{
+        background-color: black;
+     }
+}
+
+.input_modal_container{
+    display: flex;
+    justify-content:center;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: input_modal_container;
+}
+
+.schedule_container{
+    width: 100%;
+    border-spacing: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    grid-area: schedule_container;
+    & table {
+        width: 80%;
+    }
+    & th {
+        font-family: Poppins;
+        font-size: 15pt;
+    }
+    & td {
+        text-align: center;
+        padding: 5px 6px 5px 6px;
+        border-radius: 5px;
+        border: 0.5px solid black;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
+}
+
+.img_container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    grid-area: img_container;
+}
+
+@media only screen and (max-width: 1155px) {
+    .clinic_modal_container{
+  grid-template-columns: 1fr; 
+  grid-template-rows: 0.5fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "input_modal_container"
+    "img_container"
+    "schedule_container"; 
+    }
+    .img_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .schedule_container{
+        width: 100%;
+    }
+    .clinic_modal_container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 979px) {
+    .schedule_container{
+        width: 100%;
+    }
+}

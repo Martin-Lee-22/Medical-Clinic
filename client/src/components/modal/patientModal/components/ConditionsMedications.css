@@ -1,0 +1,82 @@
+.conditions_medications_container{
+    background-color: lightgray;
+    border: 0.5px solid black;
+    padding: 8px;
+    font-family: Poppins;
+    font-weight: bold;
+    min-height: 250px;
+    & label{
+        margin-right: 10px;
+    }
+    & ul {
+        margin: 0;
+        padding: 0;
+    }
+    & li {
+        display: block;
+        padding: 8px 0 8px 8px;
+    }
+
+    & li:nth-child(even){
+        background-color: rgb(212, 210, 210);
+    }
+    & li:nth-child(odd){
+        background-color: rgb(201, 198, 198);
+    }
+}
+
+#dark_conditions_medications_container{
+    & li:nth-child(even){
+        background-color: rgb(21, 20, 20);
+    }
+    & li:nth-child(odd){
+        background-color: rgb(49, 48, 52);
+    }
+}
+
+.search_container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background-color: transparent;
+    margin-bottom: 10px;
+    & input{
+        width: 50%;
+    }
+}
+
+.add_condition_medication{
+    margin-left: 9px;
+    width: 26px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 5px;
+}
+.add_condition_medication_active{
+    background-color: rgb(61, 185, 61)
+}
+.add_condition_medication_inactive{
+    background-color:rgb(192, 192, 192);
+}
+.add_condition_medication:hover{
+    cursor: pointer;
+}
+.add_condition_medication:active{
+    transform: scale(0.9);
+    transition: 0.05s;
+}
+
+.minus_button{
+    width: 15px;
+    background-color:rgb(249, 75, 75);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;;
+    border-radius: 3px;
+    padding: 2px;
+    float: right;
+    margin-right: 10px;
+    &:hover{
+        cursor: pointer;
+    }
+    &:active{
+        transform: scale(0.9);
+    }
+}

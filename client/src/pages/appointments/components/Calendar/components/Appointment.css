@@ -1,0 +1,29 @@
+.appointment_container{
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    position: absolute;
+    padding: 0px 5px 0 5px;
+    top: 0;
+    left: 4%;
+    width:85%;
+    z-index: 1;
+    border-radius: 5px;
+    border: 1px solid white;
+    &:hover{
+        cursor: pointer;
+        filter: brightness(115%);
+    }
+    &:active{
+        transform: scale(98%);
+    }
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    & h5{
+        margin: 10px 0 0 0;
+    }
+
+    & h6{
+        margin: 5px 0 0 0;
+    }
+}

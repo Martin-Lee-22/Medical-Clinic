@@ -1,0 +1,12 @@
+.clinic_info_container{
+    font-size: 9pt;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    max-width: 225px;
+    & span{
+        font-weight: bold;
+    }
+}

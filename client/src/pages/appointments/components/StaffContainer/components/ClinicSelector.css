@@ -1,0 +1,22 @@
+.clinic_selector_container{
+    padding: 8px 5px 8px 5px;
+    font-weight: bold;
+    font-size: 1vw;
+    background-color: #E9DBC9;
+    height: min-content;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    & select{
+        padding: 5px 0 5px 0;
+        border-radius: 5px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1108px) {
+    .clinic_selector_container{
+        & select{
+            width: 100%;
+        }
+    }
+}

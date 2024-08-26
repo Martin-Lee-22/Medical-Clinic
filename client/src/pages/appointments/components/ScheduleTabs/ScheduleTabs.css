@@ -1,0 +1,9 @@
+.schedule_tabs_container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px 0 5px 0;
+    background-color: #FFE2B9;
+}

@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.auth_container{
+    padding: 3px 0 10px 0;
+    position: relative;
+    margin: auto;
+    transform: translateY(150px);
+    box-shadow: 0px 3px 8px;
+    width: 460px;
+    height: 68%;
+    border-radius: 10px;
+    background-color: #EFE8DE;
+    font-family: Poppins;
+    font-weight: 700;
+    text-align: center;
+
+    & label{
+        display: block;
+        text-align: left;
+        margin: 10px 0 5px 53px;
+    }
+
+    & input:not(:last-child){
+        height: 36px;
+        width: 280px;
+        border-radius: 5px;
+        padding-left: 43px;
+        padding-right: 38px;
+    }
+
+    & form{
+        display: block;
+        padding: 15px 0 10px 0;
+        position: relative;
+    }
+
+    & input::placeholder {
+      opacity: 50%;
+    }
+
+    & input:focus {
+        outline: none;
+    }
+
+    & span{
+        color: blue;
+        text-decoration: underline;
+    }
+
+    & span:hover{
+        cursor: pointer;
+    }
+}
+
+.auth_logo{
+    width: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.default_input{
+    border: 2px solid lightgrey;
+}
+
+.valid_input{
+    border: 2px solid #05992d;
+}
+
+.invalid_input{
+    border: 2px solid lightcoral;
+}
+
+.form_icons{
+    width: 23px;
+    position: absolute;
+    transform: translate(13px, 9px);
+}
+
+.eye_icon{
+    cursor: pointer;
+}
+
+.register_form{
+    transform: translateY(80px);
+}
+
+.validation_icon{
+    position: absolute;
+    transform: translate(-35px, 9px);
+    width: 25px;
+}
+
+.show{
+    display: inline-block;
+}
+
+.hide{
+    display: none;
+}
+
+.instruction{
+    position: absolute;
+    font-size: 8pt;
+    color: white;
+    background-color: rgb(0 0 0 / 0.9) ;
+    padding: 4px 20px 4px 20px;
+    border-radius: 8px;
+    border: 1.5px solid white;
+}
+
+.instruction_name{
+    top: 13px;
+    left: 120px;
+}
+
+.instruction_email{
+    top: 95px;
+    left: 170px;
+}
+
+.instruction_password{
+    top: 170px;
+    left: 150px;
+    font-size: 6.5pt;
+}
+
+.instruction_confirm_password{
+    top: 255px;
+    left: 215px;
+}
+
+.submit_button{
+    width:120px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: #E9DBC9;
+    box-shadow: 0px 2px 1px gray;
+    margin-top: 30px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:active{
+        transform: scale(0.95);
+        transition: 0.25s;
+    }
+}
+
+.submit_button_disabled{
+    width:120px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: #E9DBC9;
+    box-shadow: 0;
+    margin-top: 30px;
+    font-weight: bold;
+    cursor: auto;
+}
+
+.error_message{
+    color: red;
+    background-color: lightpink;
+    border: 2px solid lightcoral;
+    display: inline-block;
+    width: 70%;
+    padding: 10px 10px 10px 20px;
+    margin-top: 30px;
+    margin-bottom: 0;
+}

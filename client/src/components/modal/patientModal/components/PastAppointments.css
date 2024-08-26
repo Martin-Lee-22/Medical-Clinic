@@ -1,0 +1,44 @@
+.past_appointment_container{
+    background-color: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    overflow-y: scroll;
+    min-height: 70vh;
+    height:70vh;
+}
+
+#dark_past_appointment_container{
+   background-color: transparent;
+   & > div{
+      background-color: rgb(48, 48, 48);
+   }
+}
+
+.past_appointment{
+ background-color: #D7D7D7;
+ box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+ font-family: Poppins;
+ font-weight: bold;
+ font-size: 10pt;
+ display: flex;
+ justify-content: space-evenly;
+ padding: 17px 5px 17px 5px;
+ border-radius: 5px;
+ border: 0.5px solid black;
+ transition: 0.025s;
+ &:hover{
+    cursor: pointer;
+ }
+ &:active{
+    transform: scale(0.98);
+ }
+}
+
+@media only screen and (max-width: 1042px) {
+   .past_appointment_container{
+      min-height: 50vh;
+      height:50vh;
+  }
+}

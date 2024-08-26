@@ -1,0 +1,26 @@
+.edit_delete_button_container{
+    background: transparent;
+    & img{
+        width: 28px;
+        border-radius: 5px;
+        padding: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        transition: 0.1s;
+    }
+
+    & img:hover{
+        cursor: pointer;
+    }
+
+    & img:active{
+        transform: scale(0.9);
+    }
+
+    & img:first-of-type{
+        background-color: orange;
+    }
+    & img:last-of-type{
+        background-color: red;
+        margin-left: 20px;
+    }
+}

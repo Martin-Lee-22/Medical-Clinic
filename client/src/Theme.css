@@ -1,0 +1,36 @@
+[class*='light']{
+    --primary: #E9DBC9;
+    --secondary: #FFF5E5;
+    --tertiary: brown;
+    --quarternary: #212427;
+    --quinary: #b89c9c;
+}
+
+[class*='dark']{
+    --primary: #252525;
+    /* --secondary: #5C5470; */
+    --tertiary: #B9B4C7;
+    --quarternary: white;
+    --quinary:#B9B4C7;
+}
+
+span{
+    color:var(--quarternary)
+}
+
+div{
+    background-color: var(--primary);
+    border-color: var(--tertiary);
+}
+
+section{
+    background-color: var(--secondary);
+}
+
+h1,h2,h3,h4,h5,h6{
+    color:var(--quarternary)
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--quinary);
+}

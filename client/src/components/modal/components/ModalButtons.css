@@ -1,0 +1,41 @@
+
+.modal_buttons_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    height: 35px;
+    background: transparent;
+}
+
+.modal_buttons{
+    width: 95px;
+    height: 45px;
+    border: 0;
+    color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+    &:active{
+        transform: scale(0.91);
+    }
+}
+
+.disable_button{
+    filter: grayscale(100);
+    opacity: 45%;
+}
+.save_submit_button{
+    background-color: rgba(2, 202, 92, 255);
+    margin-right: 20px;
+}
+
+.cancel_button{
+    background-color: rgba(204, 44, 44, 255);
+}

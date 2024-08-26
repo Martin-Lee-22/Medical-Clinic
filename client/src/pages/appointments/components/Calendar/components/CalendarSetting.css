@@ -1,0 +1,71 @@
+.calendar_setting_container{
+    position: absolute;
+    display: inline;
+    & span{
+        font-size: 13pt;
+        padding-left: 4px;
+        padding-right: 3px;
+    }
+}
+
+.calendar_setting_button{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    opacity: 20%;
+    &:hover{
+        cursor: pointer;
+        opacity: 100%;
+    }
+    & img{
+        width: 17px;
+        height: 17px;
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.data_select{
+    text-align: center;
+    font-family: Poppins;
+    font-weight: bold;
+}
+
+.calendar_setting_inner_container{
+    position: absolute;
+    top: -25px;
+    left: 25px;
+    z-index: 1;
+    background-color: #FFE2B9;
+    border-radius: 5px;
+    width:max-content;
+    padding: 12px 12px 5px 12px;
+    border: 1px solid black;
+}
+
+.calendar_setting_button_close{
+    width: 20px;
+    height: 20px;
+    background-image: url("../../../../../../public/red_x.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    opacity: 60%;
+    &:hover{
+        cursor: pointer;
+        opacity: 100%;
+    }
+}
+
+#calendar_setting_dark_mode{
+    background-color: rgb(29, 29, 29);
+    border: 0.5px solid white;
+}

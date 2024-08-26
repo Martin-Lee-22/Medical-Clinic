@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.sideNavBar{
+    display:grid;
+    width: 195px;
+    height: 100vh;
+    /* background-color: #EFE8DE; */
+    box-shadow: 0px 3px 8px;
+    grid-template-rows: 15% 70% 15%;
+    & > div:first-child{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    & > div:nth-child(2){
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey
+    }
+    & > div:last-child{
+        padding-top: 30px;
+    }
+}
+
+.logo{
+    margin-top: 30px;
+    width: 55px;
+    height: 55px;
+}
+
+.logo_container{
+    display: flex;
+    & h2{
+        margin-top: 40px;
+        margin-left: 10px;
+        font-family: Poppins;
+    }
+}
+
+.links_container{
+    padding-top: 30px;
+    position: relative;
+    & div > * {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        text-align: left;
+        padding: 20px;
+        font-family: Poppins;
+        font-weight:800;
+        cursor: pointer;
+        transition: 0.075s;
+        text-decoration: none;
+        color: black;
+    }
+    & div img {
+        width: 35px;
+        margin-right: 10px;
+    }
+    
+    & div:hover{
+        background-color: #F0C68A;
+        font-weight:bolder;
+    }
+    & div > *:active{
+        transform: scale(0.9);
+    }
+}
+
+.sideNavBar_container{
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    width: 0%;
+}
+.sideNavBar_container_mobile{
+    width: 100%;
+}
+.side_space{
+    width: 100%;
+}

@@ -1,0 +1,158 @@
+.patient_modal_container {  
+    display: grid; 
+    grid-template-columns: 1.3fr 0.7fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    height: 100%;
+}
+  
+.patient_modal_input_container { 
+    display:flex;
+    align-items: flex-start;
+    row-gap: 10px;
+    column-gap: 7px;
+    flex-wrap: wrap;
+    padding-bottom: 15px;
+    & div{
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 15px;
+        position: relative;
+        background-color: lightgray;
+        border-radius: 8px;
+        border: 0.5px solid #000000;
+        font-family: Poppins;
+        font-weight: bold;
+        font-size: 11.5pt;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        & input{
+            height: 23px;
+            text-align: center;
+        }
+        & label{
+            margin-right: 10px;
+        }
+    }
+}
+
+#dark_input_conditions_container{
+    color: white;
+    & form div{
+        background-color: transparent;
+        border: 0.5px solid white;
+    }
+    & form + div > div > div{
+        background-color: transparent;
+    }
+}
+
+#dark_clinics_container{
+    & div{
+        background-color: rgb(31, 30, 30);
+    }
+    & div:nth-child(4){
+        background-color: rgb(48, 48, 48);
+    }
+}
+
+#dark_past_appointments_container{
+    background-color: transparent;
+}
+
+#dob{
+    width: 100px;
+}
+
+#sex_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.patient_modal_error_msg{
+    grid-column: 1/3;
+    font-size: 8pt;
+    color: red;
+    width: max-content;
+    padding-top: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.past_appointments_container { 
+    background-color: #D2D2D2;
+    border: 0.5px solid black;
+    border-radius: 8px;
+    padding: 8px 10px 8px 10px;
+    overflow: hidden;
+    height: fit-content;
+}
+  
+.conditions_medication_clinics_container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "medical_conditions_container medications_container clinics_container"; 
+    gap: 0px 5px; 
+    padding-right: 7px;
+}
+  
+.medical_conditions_container { grid-area: medical_conditions_container; }
+.medications_container { grid-area: medications_container; }
+.clinics_container { grid-area: clinics_container; }
+
+
+@media only screen and (max-width: 1042px) {
+    .patient_modal_container {display: grid; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr; 
+        gap: 25px 0px; 
+        grid-template-areas: 
+          "patient_modal_container"; 
+      }
+}
+
+.show_error_msg_container{
+    animation-name: grow_div;
+    animation-duration: 0.15s;
+    animation-delay: 0.15s;
+    animation-fill-mode: forwards;
+    animation-timing-function:linear;
+}
+
+.show_error_msg{
+    animation-name: lower_error_msg;
+    animation-duration: 0.15s;
+    animation-delay: 0.15s;
+    animation-fill-mode: forwards;
+    animation-timing-function:linear;
+}
+
+.conditions_medication_clinics_container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    grid-template-areas: 
+      "medical_conditions_container medications_container clinics_container"; 
+    gap: 0px 5px; 
+    padding-right: 7px;
+}
+
+
+@keyframes grow_div {
+    0%{height:30px}
+    100%{height: 50px}
+}
+
+@keyframes lower_error_msg {
+    100%{ 
+        opacity: 100%;
+        top: 70%
+    }
+}
+  

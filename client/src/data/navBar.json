@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Appointments",
+        "to": "/appointments",
+        "icon_src": "../appointments.png",
+        "alt": "appointment icon"
+    },
+    {
+        "name": "Patients",
+        "to": "/patients",
+        "icon_src": "../patient.png",
+        "alt": "patient icon"
+    },
+    {
+        "name": "Doctors",
+        "to": "/doctors",
+        "icon_src": "../doctor.png",
+        "alt": "doctor icon"
+    },
+    {
+        "name": "Clinics",
+        "to": "/clinics",
+        "icon_src": "../clinic.png",
+        "alt": "clinic icon"
+    }
+]

@@ -1,0 +1,28 @@
+.delete_modal_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    & h3{
+        font-family: Poppins;
+        text-align: center;
+    }
+}
+
+.delete_modal_buttons_container{
+    display: flex;
+    gap: 20px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    & input{
+        background-color:rgb(230, 2, 2);
+        border: 1px solid black;
+    }
+    & button{
+        background-color:white;
+        color: black;
+        border: 1px solid black;
+    }
+}

@@ -1,0 +1,17 @@
+.doctors_container{
+    overflow-y: auto;
+    width:98%;
+    height:97%;
+    border-radius: 5px;
+    &::-webkit-scrollbar {
+        display: scroll;
+    }
+}
+
+.doctors_list_container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px 40px;
+    padding: 10px;
+}

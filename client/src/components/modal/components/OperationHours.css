@@ -1,0 +1,29 @@
+.operation_hours_container{
+    border:1px solid black;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    width: fit-content;
+    font-family: Poppins;
+    font-weight: bold;
+    padding: 13px;
+    background-color: lightgray;
+    font-size: 11.5pt;
+    & label{
+        padding-right: 5px;
+    }
+    & span{
+        padding: 0 3px 0 7px;
+    }
+    & select{
+        height: 26px;
+        text-align: center;
+        margin-left: 3px;
+    }
+    & select::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+}
+
+.closed_label{
+    font-size: 9pt;
+}
