@@ -1,4 +1,4 @@
-const imageModel = require('../Models/Images')
+const imageModel = require('../Models/images')
 const asyncHandler = require('express-async-handler')
 const AppError = require('../AppError')
 
