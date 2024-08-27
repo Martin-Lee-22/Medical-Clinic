@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom"
 import {useState, useEffect} from 'react'
 import useRefreshToken from "../hooks/useRefreshToken"
 import useAuth from "../hooks/useAuth"
-
+import './PersistLogin.css'
 const PersistLogin = () => {
     const [isLoading, setIsLoading] = useState(true)
     const refresh = useRefreshToken();
@@ -26,7 +26,7 @@ const PersistLogin = () => {
     return (
         <>
             {isLoading 
-                ? <p>Loading...</p>
+                ? <h1 className="loading_heading">Loading...</h1>
             : <Outlet/>}
         </>
     )

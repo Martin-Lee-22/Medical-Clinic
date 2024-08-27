@@ -1,0 +1,9 @@
+.loading_heading{
+    font-family: Poppins;
+    font-weight: bolder;
+    position: absolute;
+    font-size: 25pt;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
