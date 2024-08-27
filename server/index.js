@@ -42,10 +42,11 @@ app.use("/patients", patientRouter);
 app.use("/images", imageRouter);
 
 mongoose.connect(process.env.MONGO_DB_URL).then(
-    app.listen(process.env.PORT || 3002, (error) => {
+    app.listen(process.env.PORT || 3002, (res, error) => {
         if(error) console.log(`Error: ${error}`);
         console.log(`Server listening: port ${process.env.PORT}`)
         console.log("Connected to Mongo Database!")
+        res.send('Server is Functional!')
     })
 ).catch((error) => {
     console.log(`Failed to connect to Database: ${error}`);
