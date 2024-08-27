@@ -4,7 +4,7 @@
   "description": "Backend for the Medical Clinic App",
   "main": "index.js",
   "scripts": {
-    "start": "index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Martin",
