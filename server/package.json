@@ -1,10 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Backend for the Hospital Management App",
+  "description": "Backend for the Medical Clinic App",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Martin",
@@ -19,7 +19,6 @@
     "express-async-handler": "^1.2.0",
     "express-rate-limit": "^7.1.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^7.5.2",
-    "nodemon": "^3.0.1"
+    "mongoose": "^7.5.2"
   }
 }
