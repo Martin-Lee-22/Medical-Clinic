@@ -41,6 +41,10 @@ app.use("/room", roomRouter);
 app.use("/patients", patientRouter);
 app.use("/images", imageRouter);
 
+app.get('/', function (req, res) {
+    res.send({ title: 'Server is Live!' });
+});
+
 mongoose.connect(process.env.MONGO_DB_URL).then(
     app.listen(process.env.PORT || 3002, (error) => {
         if(error) console.log(`Error: ${error}`);
