@@ -76,24 +76,35 @@ const Calendar = (props:calendarPropTypes) => {
     },[weekBegin, weekEnd])
 
     useEffect(()=>{
-        if(props.doctor && props.clinic && week){
-            getAppointmentsDateClinicDoctorID(props.clinic._id, props.doctor._id, week[0], week[week.length - 1]) 
+            const callAppointment = async ()=>{
+                if(props.doctor && props.clinic && week){
+                await getAppointmentsDateClinicDoctorID(props.clinic._id, props.doctor._id, week[0], week[week.length - 1])
+                } 
+            }
+            callAppointment()
             setCallApi(()=>async () => {
                 if(props.doctor?._id && props.clinic?._id && week){
                     await getAppointmentsDateClinicDoctorID(props.clinic._id, props.doctor._id, week[0], week[week.length - 1]) 
                 }
             })
-        }
     },[props.doctor, props.clinic, week])
 
 
     const insertAvailableTimes = (appointment:any) =>{
         let time = hours.map((hour)=>{return hour.hour.toString()+ ":" + (hour.minute === 0 ? "00" : "30") + ' ' + hour.meridiem})
-        let firstAppointment = appointments?.find((a)=>{return isSameDay(a.startDate, appointment.startDate) && a.startDate > appointment.startDate})
+        var appointmentDate = new Date(appointment.startDate)
+
+        let firstAppointment = appointments.find((a)=>{
+            let aDate = new Date(a.startDate)
+            if(isSameDay(a.startDate, appointment.startDate) && aDate > appointmentDate) return true
+        })
+
         let startIndex = time.indexOf(format(appointment.startDate,'p')) + 1
+        console.log(`startIndex ${startIndex}`)
         var endIndex = time.length
         if(firstAppointment !== undefined){   
             endIndex = time.indexOf(format(firstAppointment.startDate,'p')) + 1
+            console.log(`endIndex: ${endIndex}`)
         }
         let availableTimes = hours.slice(startIndex, endIndex)
         appointment.availableTimes = availableTimes
@@ -117,7 +128,7 @@ const Calendar = (props:calendarPropTypes) => {
         let clinicID = ''
         if(props.doctor !== undefined) doctorID = props.doctor._id
         if(props.clinic !== undefined) clinicID = props.clinic._id
-        let newAppointment = {
+        var newAppointment = {
             startDate: newStartDate,
             endDate: newEndDate,
             doctorID: doctorID,

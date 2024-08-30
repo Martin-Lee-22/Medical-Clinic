@@ -1,13 +1,11 @@
 import {useContext, useState } from 'react'
 import './AppointmentModal.css'
 import usePatients from '../../../hooks/usePatients'
-import {add, format } from 'date-fns'
+import {format } from 'date-fns'
 import PatientInput from './components/PatientInput'
 import DeleteAppointment from './components/DeleteAppointment'
 import useModal from '../../../hooks/useModal'
-import { Pages } from '../../../data/Pages'
 import useAppointments from '../../../hooks/useAppointments'
-import ModalContext from '../../../context/modalProvider'
 import { time } from '../../../data/Types'
 import { convertTime12to24 } from '../../../utils/helperFunctions'
 import ThemeContext from '../../../context/ThemeProvider'
@@ -82,7 +80,8 @@ const AppointmentModal = (props: any) =>{
                     <h4>
                         {format(endDate, 'EEEE, MMMM d')}
                     </h4>
-                    <select onChange={(e)=>{setEndTime(props.availableTimes[e.target.selectedIndex])}}>
+                    <select defaultValue={props.availableTimes.indexOf(format(endDate, 'p'))} onChange={(e)=>{setEndTime(props.availableTimes[e.target.selectedIndex])}}>
+                        <option hidden value={props.availableTimes.indexOf(format(endDate, 'p'))}>{format(endDate, 'p')}</option>
                         {props.availableTimes.map((time:time, index:number)=>{return <option value={index} key={index}>{`${time.hour}:${time.minute === 0 ? '00' : '30'} ${time.meridiem}`}</option>})}
                     </select>
                 </div>
