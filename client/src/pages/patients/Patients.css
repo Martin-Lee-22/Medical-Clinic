@@ -16,6 +16,10 @@
     padding: 30px;
 }
 
+.no_patients{
+    font-family: Poppins;
+}
+
 .patient_headings_container{
     display: flex;
     align-items: center;

@@ -15,8 +15,7 @@ const useClinics = () => {
     const getClinics = async () => {
         try{
             const response = await axiosPrivate.get('/clinics')
-            setClincs(response.data)
-            console.log('Got clinics')
+            setClincs(response.data.sort(function(a:clinics, b:clinics){return ('' + a.name).localeCompare(b.name)}))
         }catch(err){
             console.log('Cannot get Clinics! Problem in server or API request')
         }

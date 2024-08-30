@@ -19,7 +19,6 @@ const useAppointments = () => {
         try{
             const response = await axiosPrivate.get(`/appointments/query?patientID=${patientID}`)
             setAppointments(response.data)
-            console.log('hello')
         } catch(err){
             console.log('Cannot get appointments based on patientID: ${err}')
         }
@@ -38,7 +37,6 @@ const useAppointments = () => {
         try{
             await axiosPrivate.post('/appointments/register', data)
             getAppointments()
-            console.log('Appointment created successfully')
         } catch(err){
             console.log(`Cannot create Appointment: ${err}`)
         }
@@ -48,7 +46,6 @@ const useAppointments = () => {
         try{
             await axiosPrivate.patch(`/appointments/${id}`, data)
             getAppointments()
-            console.log('Appointment updated successfully')
         } catch(err){
             console.log(`Cannot update Appointment: ${err}`)
         }
@@ -57,7 +54,6 @@ const useAppointments = () => {
     const deleteAppointment = async (id:string) => {
         try{
             await axiosPrivate.delete(`/appointments/${id}`)
-            console.log('Appointments deleted successfully')
         } catch(err){
             console.log('Cannot delete appointment! Problem in server or API request. Error: ' + err)
         }  

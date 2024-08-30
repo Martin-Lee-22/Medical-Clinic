@@ -13,7 +13,6 @@ const useImages = (id:string) => {
             const response = await axiosPrivate.patch(`/images/upload-image/${id}`, {image: image, source: id})
             if (response) {
                 setImage(response.data.image)
-                console.log('Image Uploaded/Updated Successfully')
             }
         }catch(error){
             console.log('Cannot create/update image: ' + error)

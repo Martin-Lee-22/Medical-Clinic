@@ -4,7 +4,7 @@ import ModalContext from "../context/modalProvider"
 import { patient } from "../data/Types"
 
 const usePatients = () => {
-    const [patients, setPatients] = useState<patient[]>()
+    const [patients, setPatients] = useState<patient[]>([])
     const axiosPrivate = useAxiosPrivate();
 
     const controller = new AbortController();
@@ -38,7 +38,6 @@ const usePatients = () => {
             await axiosPrivate.delete(`/patients/${id}`,{
                 signal: controller.signal
             })
-            console.log('Patient deleted!')
             getPatients()
         } catch (error){
             console.log('Cannot delete patient!')

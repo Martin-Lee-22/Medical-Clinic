@@ -47,7 +47,7 @@ const Patients = () => {
                             return <span key={index}>{type.header}</span>
                         })}
                     </div>
-                    {isLoading ? <Loading/> : (patients && (patients && search ? patients.map((patient, index)=> {
+                    {isLoading ? <Loading/> : (patients.length === 0 ? <h1 className='no_patients'>No Patients Found</h1> : (patients && search ? patients.map((patient, index)=> {
                         if (search && filterSearch(patient, search, selectedSearchType, Pages.Patient)) {
                             return <Patient key={index} patient={patient} openModal={openModal} deleteModal={deleteModal}/>       
                         }}) : patients.map((patient, index)=> {

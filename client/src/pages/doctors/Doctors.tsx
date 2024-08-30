@@ -12,11 +12,11 @@ import Card from '../../components/Card/Card'
 import ModalContext from '../../context/modalProvider'
 import useModal from '../../hooks/useModal'
 import Loading from '../../components/Loading/Loading'
+import { filterSearch } from '../../utils/SearchFunctions'
 
 const Doctors = () => {
     const {doctors, getDoctors} = useDoctors()
-    const [, setSearch] = useState<string>("")
-    const [, setSort] = useState<string>('forward')
+    const [search, setSearch] = useState<string>("")
     const [selectedSearchType, setSelectedSearchType] = useState(doctorHeaders[0]['header'])
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const {openModal, deleteModal} = useModal()
@@ -39,14 +39,16 @@ const Doctors = () => {
             <div className='search_menu_container'>
                 <SearchInput selectedSearchType={selectedSearchType} setSearch={setSearch} searchTypes={doctorHeaders}/>
                 <SearchType searchTypes={doctorHeaders} setSelectedSearchType={setSelectedSearchType}/>
-                <SortType setSort={setSort}/>
                 <AddButton pageType={Pages.Doctor}/>
             </div>
             <div className='doctors_list_container'>
-                {isLoading ? <Loading/> : 
-                (doctors && doctors.map((doctor, index) => {
-                    return <Card key={index} data={doctor} type={Pages.Doctor} openModal={openModal} deleteModal={deleteModal}/>
-                }))}
+            {isLoading ? <Loading/> : (doctors.length === 0 ? <h1 className='no_doctors'>No Doctors Found</h1>:(doctors && search ? doctors.map((doctor)=> { 
+                        if (search && filterSearch(doctor, search, selectedSearchType, Pages.Doctor)) {
+                            return <div key={doctor._id}><Card data={doctor} type={Pages.Doctor} openModal={openModal} deleteModal={deleteModal}/></div>
+                        }}) : doctors.map((doctor)=> {
+                        return <div key={doctor._id}><Card data={doctor} type={Pages.Doctor} openModal={openModal} deleteModal={deleteModal}/></div>
+                    })))
+                }
             </div>
         </div>
     </section>)

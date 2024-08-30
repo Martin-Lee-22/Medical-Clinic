@@ -11,6 +11,7 @@ import Loading from '../../components/Loading/Loading'
 import { filterSearch } from '../../utils/SearchFunctions'
 import ModalContext from '../../context/modalProvider'
 import useModal from '../../hooks/useModal'
+import { clinics } from '../../data/Types'
 
 const Clinics = () => {
     const {clinics, getClinics} = useClinics()
@@ -40,11 +41,11 @@ const Clinics = () => {
                     <AddButton pageType={Pages.Clinic}/>
                 </div>
                 <div className='clinics_list_container'>
-                    {isLoading ? <Loading/> : (clinics && (search ? clinics.map((clinic, index)=> {
+                    {isLoading ? <Loading/> : (clinics.length === 0 ? <h1 className='no_clinics'>No Clinics Found</h1>:(search ? clinics.map((clinic:clinics)=> {
                         if (search && filterSearch(clinic, search, selectedSearchType, Pages.Clinic)) {
-                            return <Card key={index} data={clinic} type={Pages.Clinic} openModal={openModal} deleteModal={deleteModal}/>
-                        }}) : clinics.map((clinic, index)=> {
-                        return(<Card key={index} data={clinic} type={Pages.Clinic} openModal={openModal} deleteModal={deleteModal}/>)
+                            return <div key={clinic._id}><Card data={clinic} type={Pages.Clinic} openModal={openModal} deleteModal={deleteModal}/></div>
+                        }}) : clinics.map((clinic:clinics)=> {
+                        return <div key={clinic._id}><Card data={clinic} type={Pages.Clinic} openModal={openModal} deleteModal={deleteModal}/></div>
                         })))
                     }
                 </div>

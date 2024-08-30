@@ -32,7 +32,7 @@ const DoctorModal  = (props:any) => {
     const [validPhoneNumber, setValidPhoneNumber] = useState<boolean>(false)
     const [email, setEmail] = useState<string>(props.email || '')
     const [msp, setMsp] = useState<string>(props.msp || '')
-    const [color, setColor]= useState<string>(props.color || '#000000')
+    const [color, setColor]= useState<string>(props.color || '#ffe08a')
     const [title, setTitle] = useState<string>(props.title || '')
     const [, setValidInputs]= useState<boolean>(false)
     const [specialties, setSpecialties] = useState<string[]>(props.specialties || [])

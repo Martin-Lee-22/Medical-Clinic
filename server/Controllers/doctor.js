@@ -24,7 +24,7 @@ const createDoctor = asyncHandler(async(req, res) => {
         specialties: req.body.specialties || [],
         msp: req.body.msp || '',
         clinics: req.body.clinics || [],
-        color: req.body.color || '#000000',
+        color: req.body.color || '#ffe08a',
         title: req.body.title || ''
     })
     console.log(`Created New Doctor ${JSON.stringify(newDoctor)}`)
