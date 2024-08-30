@@ -43,8 +43,9 @@ const filterSearch = (data: any, search:string, searchType:string, type:string) 
             if(data.province.toUpperCase().includes(search.toUpperCase())) return true
             break;
         case 'Specialty':
-            const specialties = data.specialties.map((specialty:string)=> {return specialty.toUpperCase()})
-            if(specialties.includes(search.toUpperCase())) return true
+            for(let i = 0; i < data.specialties.length; i++){
+                if(data.specialties[i].toUpperCase().includes(search.toUpperCase())) return true
+            }
             break;
     }
     return false;
