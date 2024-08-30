@@ -13,6 +13,7 @@ import ModalContext from '../../context/modalProvider'
 import useModal from '../../hooks/useModal'
 import Loading from '../../components/Loading/Loading'
 import { filterSearch } from '../../utils/SearchFunctions'
+import { doctor } from '../../data/Types'
 
 const Doctors = () => {
     const {doctors, getDoctors} = useDoctors()
@@ -42,10 +43,10 @@ const Doctors = () => {
                 <AddButton pageType={Pages.Doctor}/>
             </div>
             <div className='doctors_list_container'>
-            {isLoading ? <Loading/> : (doctors.length === 0 ? <h1 className='no_doctors'>No Doctors Found</h1>:(doctors && search ? doctors.map((doctor)=> { 
+            {isLoading ? <Loading/> : (doctors.length === 0 ? <h1 className='no_doctors'>No Doctors Found</h1>:(doctors && search ? doctors.map((doctor:doctor)=> {
                         if (search && filterSearch(doctor, search, selectedSearchType, Pages.Doctor)) {
                             return <div key={doctor._id}><Card data={doctor} type={Pages.Doctor} openModal={openModal} deleteModal={deleteModal}/></div>
-                        }}) : doctors.map((doctor)=> {
+                        }}) : doctors.map((doctor:doctor)=> {
                         return <div key={doctor._id}><Card data={doctor} type={Pages.Doctor} openModal={openModal} deleteModal={deleteModal}/></div>
                     })))
                 }
