@@ -13,7 +13,7 @@ const PatientInput = (props:any) => {
     const {darkMode} = useContext(ThemeContext)
 
     useEffect(()=>{
-        if(props.patients !== undefined) {
+        if(props.patients.length > 0) {
             setList(props.patients)
             if(props.patientID){
                 let patient = props.patients.find((patient:patient)=>{return props.patientID === patient._id})

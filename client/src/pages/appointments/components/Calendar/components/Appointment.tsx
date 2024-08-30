@@ -21,7 +21,8 @@ const Appointment = (props:AppointmentType) =>{
     return(
         <div className='appointment_container' style={{height:`${diffMinutes * containerHeight}px`, backgroundColor: `${props.color}`}} onClick={()=>{props.openModal(Pages.Appointment, props.appointment);}}>
             <h5>{startTime} - {endTime}</h5>
-            <h6>{patientName} - {props.appointment.description}</h6>
+            <h5>{patientName}</h5>
+            <p> - {props.appointment.description}</p>
         </div>
     )
 }

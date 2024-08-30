@@ -19,11 +19,17 @@
     &::-webkit-scrollbar {
         display: none;
     }
-    & h5{
+    & h5:nth-child(1){
         margin: 10px 0 0 0;
     }
+    & h5:nth-child(2){
+        margin: 0;
+        display: inline;
+    }
 
-    & h6{
-        margin: 5px 0 0 0;
+    & p{
+        display: inline;
+        margin: 0;
+        font-size: 8pt;
     }
 }
