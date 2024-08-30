@@ -7,7 +7,7 @@ import useDoctors from "./useDoctors"
 import useAppointments from "./useAppointments"
 
 const useModal = () => {
-    const {setShowModal, setData, data, setType, setIsDelete, callApi} = useContext(ModalContext)
+    const {setShowModal, setData, data, setType, setIsDelete, callApi, setLoading} = useContext(ModalContext)
     const {deletePatient} = usePatients()
     const {deleteClinic} = useClinics()
     const {deleteDoctor} = useDoctors()
@@ -20,6 +20,7 @@ const useModal = () => {
     }
 
     const closeModal = () => {
+        setLoading(false)
         callApi()
         setType('')
         setData({})
@@ -39,6 +40,14 @@ const useModal = () => {
         setData(data)
         setType(type)
         setShowModal(true)
+    }
+
+    const loadingModal = (loading:boolean) =>{
+        if(loading){
+            setLoading(true)
+        } else {
+            setLoading(false)
+        }
     }
 
     const deleteRecord = (type:string, data_id:string) => {
@@ -64,12 +73,8 @@ const useModal = () => {
         }
         closeModal()
     }
-
-
-
-
-
-    return {openModal, closeModal, deleteRecord, deleteModal, cancelModal}
+    
+    return {openModal, closeModal, deleteRecord, deleteModal, cancelModal, loadingModal}
 }
 
 export default useModal

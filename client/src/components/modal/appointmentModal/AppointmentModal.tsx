@@ -22,7 +22,7 @@ const AppointmentModal = (props: any) =>{
     const [price, setPrice] = useState(props.price || 0)
     const startDate = props.startDate || new Date()
     const {patients} = usePatients()
-    const {closeModal, deleteRecord} = useModal()
+    const {closeModal, deleteRecord, loadingModal} = useModal()
     const {createAppointment, updateAppointment} = useAppointments()
 
     const [textAreaSelected, setTextAreaSelected] = useState(false)
@@ -46,6 +46,7 @@ const AppointmentModal = (props: any) =>{
             price: price,
         }
         try{
+            loadingModal(true)
             if(props._id) {
                 await updateAppointment(props._id, data)
             } else {
@@ -53,6 +54,7 @@ const AppointmentModal = (props: any) =>{
             }
             closeModal()
         } catch(error){
+            loadingModal(false)
             console.log("Cannot Create Appointment!")
             console.log(`Error: ${error}`)
         }

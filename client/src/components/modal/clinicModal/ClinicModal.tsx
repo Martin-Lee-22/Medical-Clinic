@@ -25,7 +25,7 @@ const ClinicModal = (props: any) => {
     const [hoursOfOperation, setHoursOfOperation] = useState(props.hoursOfOperation || default_schedule)
     const {createUpdateImage, image, setImage} = useImages(props._id || '')
 
-    const {closeModal} = useModal()
+    const {closeModal, loadingModal} = useModal()
 
     const {darkMode} = useContext(ThemeContext)
 
@@ -44,16 +44,14 @@ const ClinicModal = (props: any) => {
         }
         try{
             var response = null
+            loadingModal(true)
             if(props._id) {
                 response = await axiosPrivate.patch(`/clinics/${props._id}`, data)
                 createUpdateImage(response.data._id)
-                console.log('Clinic updated!')
             } else {
                 response = await axiosPrivate.post('/clinics/register', data)
-                console.log('Clinic Created!')
             }
             createUpdateImage(response.data._id)
-            console.log('Image uploaded successfully!')
             setName('')
             setPhone('')
             setEmail('')
@@ -65,6 +63,7 @@ const ClinicModal = (props: any) => {
             setHoursOfOperation(default_schedule)
             closeModal()
         } catch(error){
+            loadingModal(false)
             console.log("Cannot Create Clinic!")
             console.log(`Error: ${error}`)
         }

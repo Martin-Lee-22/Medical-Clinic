@@ -44,7 +44,7 @@ const DoctorModal  = (props:any) => {
 
     const {darkMode} = useContext(ThemeContext)
 
-    const {closeModal} = useModal()
+    const {closeModal, loadingModal} = useModal()
 
     useEffect(() => {
         if(firstName) setValidFirstName(validateName(firstName, false))
@@ -83,6 +83,7 @@ const DoctorModal  = (props:any) => {
                 title: title
             }
             try{
+                loadingModal(true)
                 if(props._id) {
                     const response = await updateDoctor(props._id, data)
                     if(response) await createUpdateImage(response._id)
@@ -108,6 +109,7 @@ const DoctorModal  = (props:any) => {
                 setTitle('')
                 closeModal()
             } catch(error){
+                loadingModal(false)
                 console.log("Cannot Create Patient!")
                 console.log(`Error: ${error}`)
             }

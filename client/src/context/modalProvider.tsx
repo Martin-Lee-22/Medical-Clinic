@@ -11,6 +11,8 @@ type ModalContextType = {
     setIsDelete: React.Dispatch<React.SetStateAction<boolean>>,
     callApi: ()=>void,
     setCallApi: React.Dispatch<React.SetStateAction<() => Promise<void>>>,
+    loading: boolean,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
   }
   
 const ModalContextState = {
@@ -23,7 +25,9 @@ const ModalContextState = {
     isDelete: null,
     setIsDelete: () => {},
     callApi: ()=>{},
-    setCallApi: () =>async ()=>Promise<void>
+    setCallApi: () =>async ()=>Promise<void>,
+    loading: false,
+    setLoading: ()=>{}
 }
 
 const ModalContext = createContext<ModalContextType>(ModalContextState)

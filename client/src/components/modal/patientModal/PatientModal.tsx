@@ -8,8 +8,6 @@ import { validatePhn, validatePhoneNumber, validatePostalCode, validateName } fr
 import PastAppointments from "./components/PastAppointments";
 import { formatDate, objectToClinicArray } from "../../../utils/helperFunctions";
 import useModal from "../../../hooks/useModal";
-import  {Pages} from '../../../data/Pages'
-import ModalContext from "../../../context/modalProvider";
 import { creditCardLength, postalCodeLength, phnLength, phoneNumberMaxLength, phoneNumberMinLength } from "../../../data/input_restrictions";
 import SelectList from "../components/SelectList";
 import useClinics from "../../../hooks/useClinics";
@@ -41,7 +39,7 @@ const PatientModal = (props:any) => {
     const [confirmClinics, setConfirmClinics] = useState(props.clinics || [])
     
     const {clinics} = useClinics()
-    const {closeModal} = useModal()
+    const {closeModal, loadingModal} = useModal()
 
     const {appointments, getAppointmentsPatientID} = useAppointments()
 
@@ -95,6 +93,7 @@ const PatientModal = (props:any) => {
                 clinics: confirmClinics
             }
             try{
+                loadingModal(true)
                 if(props._id) {
                     await axiosPrivate.patch(`/patients/${props._id}`, data)
                     console.log('Patient Updated!')
@@ -118,6 +117,7 @@ const PatientModal = (props:any) => {
                 setCreditCard('')
                 setPhn('')
             } catch(error){
+                loadingModal(false)
                 console.log("Cannot Create Patient!")
                 console.log(`Error: ${error}`)
             }

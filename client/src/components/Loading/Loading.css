@@ -2,18 +2,19 @@
     position: absolute;
     top:50%;
     left: 50%;
+    z-index: 3;
     transform: translate(-50%, -50%);
     display: flex;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
     background: transparent;
-    /* background-color: rgba(223, 196, 162, 0.7); */
-    /* backdrop-filter: blur(0.85px); */
+    background-color: rgba(249, 244, 238, 0.5);
+    backdrop-filter: blur(0.85px);
 }
 
 .loading{
-    /* height: 35%;
-    width: 18%; */
     width: 250px;
 }

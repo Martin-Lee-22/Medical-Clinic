@@ -1,4 +1,4 @@
-import {useContext, useState} from "react";
+import {useState} from "react";
 import "./ModalManager.css";
 import PatientModal from "./patientModal/PatientModal";
 import ModalContext from "../../context/modalProvider";
@@ -8,6 +8,7 @@ import { Pages } from "../../data/Pages";
 import ClinicModal from "./clinicModal/ClinicModal";
 import DoctorModal from "./doctorModal/DoctorModal";
 import AppointmentModal from "./appointmentModal/AppointmentModal";
+import Loading from "../Loading/Loading";
 
 type PropType = {
   children: React.ReactNode;
@@ -19,13 +20,15 @@ const ModalManager = ({ children }: PropType) => {
   const [data, setData] = useState({});
   const [isDelete, setIsDelete] = useState<boolean>(false);
   const [callApi, setCallApi] = useState(()=>async()=>{})
+  const [loading, setLoading] = useState(false)
 
   return (
-    <ModalContext.Provider value={{showModal, setShowModal, isDelete, setIsDelete, type, setType, data, setData, callApi, setCallApi}}>
+    <ModalContext.Provider value={{showModal, setShowModal, isDelete, setIsDelete, type, setType, data, setData, callApi, setCallApi, loading, setLoading}}>
     {showModal &&
         <div className="modal_manager_container">
           <div className="modal_container">
             <div className="modals">
+              {loading && <Loading/>}
               {isDelete && <DeleteModal />}
               {(!isDelete && type === Pages.Patient) && <PatientModal {...data}/>}
               {(!isDelete && type === Pages.Clinic) && <ClinicModal {...data}/>}
