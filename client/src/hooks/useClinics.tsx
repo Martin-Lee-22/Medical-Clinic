@@ -6,6 +6,7 @@ import { defaultClinic } from "../data/defaultData"
 
 const useClinics = () => {
     const [clinics, setClincs] = useState([])
+    const [loading, setLoading]= useState(false)
     const [clinic, setClinic] = useState<clinics>(defaultClinic)
 
     useEffect(() => {
@@ -13,12 +14,14 @@ const useClinics = () => {
     }, [])
 
     const getClinics = async () => {
+        setLoading(true)
         try{
             const response = await axiosPrivate.get('/clinics')
             setClincs(response.data.sort(function(a:clinics, b:clinics){return ('' + a.name).localeCompare(b.name)}))
         }catch(err){
             console.log('Cannot get Clinics! Problem in server or API request')
         }
+        setLoading(false)
     }
 
     const getClinic = async(id:string) => {
@@ -38,7 +41,7 @@ const useClinics = () => {
         }
     }
 
-    return {clinics, getClinics, deleteClinic, getClinic, clinic, setClinic}
+    return {clinics, getClinics, deleteClinic, getClinic, clinic, setClinic, loading}
 }
 
 export default useClinics

@@ -14,7 +14,7 @@ import useModal from '../../hooks/useModal'
 import { clinics } from '../../data/Types'
 
 const Clinics = () => {
-    const {clinics, getClinics} = useClinics()
+    const {clinics, getClinics, loading} = useClinics()
     const [search, setSearch] = useState<string>("")
     const [selectedSearchType, setSelectedSearchType] = useState(clinicHeaders[0]['header'])
     const {setCallApi} = useContext(ModalContext)
@@ -41,12 +41,13 @@ const Clinics = () => {
                     <AddButton pageType={Pages.Clinic}/>
                 </div>
                 <div className='clinics_list_container'>
-                    {isLoading ? <Loading/> : (clinics.length === 0 ? <h1 className='no_clinics'>No Clinics Found</h1>:(search ? clinics.map((clinic:clinics)=> {
+                    {loading && <Loading/>}
+                    {clinics.length === 0 ? <h1 className='no_clinics'>No Clinics Found</h1>:(search ? clinics.map((clinic:clinics)=> {
                         if (search && filterSearch(clinic, search, selectedSearchType, Pages.Clinic)) {
                             return <div key={clinic._id}><Card data={clinic} type={Pages.Clinic} openModal={openModal} deleteModal={deleteModal}/></div>
                         }}) : clinics.map((clinic:clinics)=> {
                         return <div key={clinic._id}><Card data={clinic} type={Pages.Clinic} openModal={openModal} deleteModal={deleteModal}/></div>
-                        })))
+                        }))
                     }
                 </div>
             </div>

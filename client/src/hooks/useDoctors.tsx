@@ -7,6 +7,7 @@ import { getCookie } from "../utils/Cookies"
 
 const useDoctors = () => {
     const [doctors, setDoctors] = useState<doctor[]>([])
+    const [loading, setLoading] = useState(false)
     const [doctor, setDoctor] = useState<doctor>(defaultDoctor)
 
     useEffect(()=>{
@@ -14,12 +15,14 @@ const useDoctors = () => {
     }, [])
 
     const getDoctors = async () => {
+        setLoading(true)
         try{
             const response = await axiosPrivate.get('/doctor/')
             setDoctors(response.data.sort(function(a:doctor, b:doctor){return ('' + a.firstName).localeCompare(b.firstName)}))
         }catch(err){
             console.log('Cannot get Doctors! Problem in server or API request')
         }
+        setLoading(false)
     }
 
     const deleteDoctor = async (id:string) => {
@@ -60,7 +63,7 @@ const useDoctors = () => {
         }
     }
 
-    return {doctors, getDoctors, deleteDoctor, createDoctor, updateDoctor, getDoctor, doctor, setDoctor}
+    return {doctors, getDoctors, deleteDoctor, createDoctor, updateDoctor, getDoctor, doctor, setDoctor, loading}
 }
 
 export default useDoctors
