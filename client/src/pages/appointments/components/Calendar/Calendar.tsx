@@ -100,11 +100,9 @@ const Calendar = (props:calendarPropTypes) => {
         })
 
         let startIndex = time.indexOf(format(appointment.startDate,'p')) + 1
-        console.log(`startIndex ${startIndex}`)
         var endIndex = time.length
         if(firstAppointment !== undefined){   
             endIndex = time.indexOf(format(firstAppointment.startDate,'p')) + 1
-            console.log(`endIndex: ${endIndex}`)
         }
         let availableTimes = hours.slice(startIndex, endIndex)
         appointment.availableTimes = availableTimes
