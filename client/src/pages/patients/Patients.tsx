@@ -15,7 +15,7 @@ import useModal from '../../hooks/useModal'
 
 
 const Patients = () => {
-    const {patients, getPatients} = usePatients()
+    const {patients, getPatients, loading} = usePatients()
     const [search, setSearch] = useState<string>("")
     const searchTypes = patientHeaders
     const [selectedSearchType, setSelectedSearchType] = useState(searchTypes[0]['header'])
@@ -47,12 +47,13 @@ const Patients = () => {
                             return <span key={index}>{type.header}</span>
                         })}
                     </div>
-                    {isLoading ? <Loading/> : (patients.length === 0 ? <h1 className='no_patients'>No Patients Found</h1> : (patients && search ? patients.map((patient, index)=> {
+                    {loading && <Loading/>}
+                    {patients.length === 0 ? <h1 className='no_patients'>No Patients Found</h1> : (patients && search ? patients.map((patient, index)=> {
                         if (search && filterSearch(patient, search, selectedSearchType, Pages.Patient)) {
                             return <Patient key={index} patient={patient} openModal={openModal} deleteModal={deleteModal}/>       
                         }}) : patients.map((patient, index)=> {
                         return(<Patient key={index} patient={patient} openModal={openModal} deleteModal={deleteModal}/>)
-                    })))
+                    }))
                     }
                 </div>
             </div>
