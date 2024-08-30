@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { axiosPrivate } from "../api/axios"
-import ModalContext from "../context/modalProvider"
 import { clinics } from "../data/Types"
 import { defaultClinic } from "../data/defaultData"
 

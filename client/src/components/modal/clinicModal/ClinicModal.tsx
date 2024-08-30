@@ -6,11 +6,8 @@ import OperationHours from '../components/OperationHours'
 import { phoneNumberMaxLength, phoneNumberMinLength, postalCodeLength } from '../../../data/input_restrictions'
 import { axiosPrivate } from '../../../api/axios'
 import useModal from '../../../hooks/useModal'
-import ModalContext from '../../../context/modalProvider'
-import { Pages } from '../../../data/Pages'
 import useImages from '../../../hooks/useImages'
 import UploadImage from '../components/UploadImage'
-import Room from './component/Room'
 import ThemeContext from '../../../context/ThemeProvider'
 
 const ClinicModal = (props: any) => {
