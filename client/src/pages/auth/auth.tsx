@@ -85,6 +85,7 @@ const Auth = () => {
                     }
                  )
                  setRegister(false)
+                 alert('Account creation Successful! Please Login!')
             } else {
                 response = await axios.post('/auth/login', 
                     JSON.stringify({email, password}),
