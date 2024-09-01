@@ -5,7 +5,7 @@ import data from '../../data/navBar.json'
 import {Link, useNavigate } from "react-router-dom";
 import useLogout from '../../hooks/useLogout';
 import ThemeToggle from './components/ThemeToggle';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
+import { cookies, deleteCookie } from '../../utils/Cookies';
 
 type propsType = {
     isMobile: boolean;
@@ -18,10 +18,10 @@ const SideNavBar = ({isMobile, setShowSideNavBar, showSideNavBar}: propsType) =>
     const navigate = useNavigate();
 
     const sideNavBar = useRef(null)
-    // useOnClickOutside(sideNavBar, ()=>{if(isMobile)setShowSideNavBar(false)}, showSideNavBar)
 
     const signout = async () => {
         await logout();
+        deleteCookie(cookies)
         navigate('/')
     }
 

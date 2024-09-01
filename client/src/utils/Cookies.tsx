@@ -1,3 +1,5 @@
+const cookies = ['clinic', 'doctor', 'date']
+
 function createCookie(cname:string, cvalue:string, exdays:Date){
     document.cookie = `${cname}=${cvalue}; expires=${exdays};`
 }
@@ -17,4 +19,12 @@ function getCookie(cname:string){
     return "";
 }
 
-export {createCookie, getCookie}
+function deleteCookie(cookies: string[]): void {
+    for(let i = 0; i < cookies.length; i++) {
+        if (cookies[i] != "") {
+            document.cookie = `${cookies[i]}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        }
+    }
+}
+
+export {cookies, createCookie, getCookie, deleteCookie}
