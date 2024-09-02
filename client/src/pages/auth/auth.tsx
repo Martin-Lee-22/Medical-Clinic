@@ -56,7 +56,8 @@ const Auth = () => {
         setShowPassword,
         errorMessage,
         errorEmail,
-        errorPassword
+        errorPassword,
+        loading
     }
 
     useEffect(() => {
@@ -124,7 +125,7 @@ const Auth = () => {
             <img src={'../logo_auth.png'} alt={'logo for authorization page'} className='auth_logo'/>
             {errorMessage && <h5 className='error_message'>{errorMessage}</h5>}
             <form onSubmit={handleSubmit}>
-                {loading && <Loading/>}
+                {/* {loading && <Loading/>} */}
                 {register ? <Register {...registerProps}/> : <Login {...loginProps}/>}
             </form>
             <p>{!register && "Don't "}Have an Account?<br/>Click Here to <span onClick={() => {setRegister(!register); setErrorMessage("")}}>{register ? "Login" : "Register"}</span></p>

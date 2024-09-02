@@ -1,3 +1,4 @@
+import Spinner from '../../components/Loading/Spinner';
 import './auth.css'
 
 interface props{
@@ -10,6 +11,7 @@ interface props{
     errorMessage: string; 
     errorEmail: boolean;
     errorPassword: boolean;
+    loading: boolean;
 }
 
 const Login = ({...props} : props) => {
@@ -24,7 +26,7 @@ const Login = ({...props} : props) => {
             <img src='close_eye.png' alt='password eye icon' onClick={() => props.setShowPassword(!props.showPassword)} className='form_icons eye_icon'/>}
             <input type={props.showPassword ? 'text' : 'password'} required autoComplete='off' id='password' className={'default_input ' + (props.errorPassword && props.errorMessage && "invalid_input")} placeholder='Enter Password' value={props.password} onChange={(e) => props.setPassword(e.target.value)}/>
 
-            <input type='submit' value={'Login'} className={'submit_button'}/>
+            <input type='submit' value={'Login'} className={'submit_button'}>{props.loading && <Spinner/>}</input>
         </>
     )
 }
