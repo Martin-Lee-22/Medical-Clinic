@@ -7,6 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { validateName, validateEmail, validatePassword } from '../../utils/ValidateInputs';
 import './auth.css'
+import Loading from '../../components/Loading/Loading';
 
 const Auth = () => {
     const {setAuth} = useAuth();
@@ -35,6 +36,8 @@ const Auth = () => {
     const [errorMessage, setErrorMessage] = useState<string>("") 
     const [errorEmail, setErrorEmail] = useState<boolean>(false)
     const [errorPassword, setErrorPassword] = useState<boolean>(false)
+
+    const [loading, setLoading] = useState<boolean>(false)
 
     const registerProps = {
         name, setName, validName, setValidName,
@@ -87,6 +90,7 @@ const Auth = () => {
                  setRegister(false)
                  alert('Account creation Successful! Please Login!')
             } else {
+                setLoading(true)
                 response = await axios.post('/auth/login', 
                     JSON.stringify({email, password}),
                     {
@@ -96,15 +100,16 @@ const Auth = () => {
                  )
                  setAuth(response.data)
                  console.log("Successfully Logged in!")
-
             }
             setName('');
             setEmail('');
             setPassword('');
             setConfirmPassword('');
+            setLoading(false)
             navigate(from, {replace: true});
 
         } catch(err: any) {
+            setLoading(false)
             setErrorMessage(err?.response.data.message)
             if(err?.response.data.type === 1){
                 setErrorEmail(true)
@@ -119,6 +124,7 @@ const Auth = () => {
             <img src={'../logo_auth.png'} alt={'logo for authorization page'} className='auth_logo'/>
             {errorMessage && <h5 className='error_message'>{errorMessage}</h5>}
             <form onSubmit={handleSubmit}>
+                {loading && <Loading/>}
                 {register ? <Register {...registerProps}/> : <Login {...loginProps}/>}
             </form>
             <p>{!register && "Don't "}Have an Account?<br/>Click Here to <span onClick={() => {setRegister(!register); setErrorMessage("")}}>{register ? "Login" : "Register"}</span></p>
